@@ -108,7 +108,7 @@ create_polarion_test_case(
 
 ```python
 add_test_steps_to_testcase(
-    test_case_id="OCP-88278",
+    test_case_id="PROJECT-123",
     test_steps=[
         {
             "step": "Run command: oc get nodes",
@@ -128,7 +128,7 @@ add_test_steps_to_testcase(
 create_test_run(
     title="Sprint 123 - Certificate Tests",
     template="Release Test",
-    test_case_ids=["OCP-88278", "OCP-88279"],
+    test_case_ids=["PROJECT-123", "PROJECT-456"],
     query="type:testcase AND title:certificate"
 )
 ```
@@ -138,10 +138,10 @@ create_test_run(
 ```python
 update_test_run_result(
     test_run_id="OSE-TR-12345",
-    test_case_id="OCP-88278",
+    test_case_id="PROJECT-123",
     result="passed",
     comment="All certificates validated successfully",
-    executed_by="rrasouli@redhat.com",
+    executed_by="user@example.com",
     duration=120  # seconds
 )
 ```
@@ -153,8 +153,8 @@ import_junit_results(
     junit_file="/tmp/junit-results.xml",
     test_run_id="OSE-TR-12345",
     map_test_ids={
-        "com.example.CertTest.testKubeletCA": "OCP-88278",
-        "com.example.CertTest.testCloudCA": "OCP-88279"
+        "com.example.CertTest.testKubeletCA": "PROJECT-123",
+        "com.example.CertTest.testCloudCA": "PROJECT-456"
     }
 )
 ```
@@ -224,7 +224,7 @@ Use SOAP API to UPDATE existing test steps (requires username/password):
 ```python
 # For test cases that already have steps
 add_test_steps_to_testcase(
-    test_case_id="OCP-88278",
+    test_case_id="PROJECT-123",
     test_steps=[
         {"step": "Updated step 1", "expectedResult": "Updated result 1"},
         {"step": "Updated step 2", "expectedResult": "Updated result 2"}
@@ -255,7 +255,7 @@ The server automatically tries SOAP API if REST fails:
 ```python
 # Automatically detects existing steps and uses SOAP if available
 result = add_test_steps_to_testcase(
-    test_case_id="OCP-88278",
+    test_case_id="PROJECT-123",
     test_steps=[...]
 )
 
@@ -302,7 +302,7 @@ Create a new test case in Polarion.
 Add or replace test steps for a test case.
 
 **Parameters:**
-- `test_case_id` (str): Test case ID (e.g., "OCP-88278")
+- `test_case_id` (str): Test case ID (e.g., "PROJECT-123")
 - `test_steps` (List[Dict]): List of {"step": "...", "expectedResult": "..."}
 - `project_id` (str): Project ID
 
@@ -392,8 +392,8 @@ Bulk import test cases from spreadsheet.
 
 | Test Case ID | Result | Comment | Executed By | Duration (s) |
 |--------------|--------|---------|-------------|--------------|
-| OCP-88278 | passed | All checks OK | rrasouli@redhat.com | 120 |
-| OCP-88279 | failed | Certificate mismatch | rrasouli@redhat.com | 45 |
+| PROJECT-123 | passed | All checks OK | user@example.com | 120 |
+| PROJECT-456 | failed | Certificate mismatch | user@example.com | 45 |
 
 ## JUnit XML Mapping
 
