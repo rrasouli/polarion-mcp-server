@@ -5,24 +5,24 @@ A comprehensive Model Context Protocol (MCP) server for Siemens Polarion ALM int
 ## Features
 
 ### Test Case Management
-- ✅ Create test cases with full details
-- ✅ Update test case attributes
-- ✅ Search and query test cases
-- ✅ **Add/update test steps** (via discovered REST API endpoint)
-- ✅ Link test cases to requirements
+- Create test cases with full details
+- Update test case attributes
+- Search and query test cases
+- **Add/update test steps** (via discovered REST API endpoint)
+- Link test cases to requirements
 
 ### Test Run Management
-- ✅ Create test runs
-- ✅ Add test cases to test runs
-- ✅ Update test run status
-- ✅ Record test results (passed/failed/blocked)
-- ✅ Add attachments and comments
+- Create test runs
+- Add test cases to test runs
+- Update test run status
+- Record test results (passed/failed/blocked)
+- Add attachments and comments
 
 ### Integration Capabilities
-- ✅ **JUnit XML import** - Import test results from JUnit reports
-- ✅ **Spreadsheet export** - Export test cases/results to Excel/CSV
-- ✅ **Spreadsheet import** - Bulk import test cases from spreadsheets
-- ✅ Webhook support for CI/CD integration
+- **JUnit XML import** - Import test results from JUnit reports
+- **Spreadsheet export** - Export test cases/results to Excel/CSV
+- **Spreadsheet import** - Bulk import test cases from spreadsheets
+- Webhook support for CI/CD integration
 
 ## Quick Start
 
@@ -336,13 +336,13 @@ This server uses several Polarion REST API endpoints, including some undocumente
 
 | Endpoint | Method | Purpose | Documented? |
 |----------|--------|---------|-------------|
-| `/projects/{id}/workitems` | POST | Create workitem | ✅ Yes |
-| `/projects/{id}/workitems/{id}` | PATCH | Update workitem | ✅ Yes |
-| `/projects/{id}/workitems/{id}/teststeps` | POST | **Add test steps** | ❌ **Discovered!** |
-| `/projects/{id}/workitems/{id}/teststeps/{index}` | GET | Get test step | ❌ **Discovered!** |
-| `/projects/{id}/workitems/{id}/teststeps/{index}` | DELETE | Delete test step | ❌ **Discovered!** |
-| `/projects/{id}/testruns` | POST | Create test run | ✅ Yes |
-| `/projects/{id}/testruns/{id}/records` | PATCH | Update test result | ✅ Yes |
+| `/projects/{id}/workitems` | POST | Create workitem | Yes |
+| `/projects/{id}/workitems/{id}` | PATCH | Update workitem | Yes |
+| `/projects/{id}/workitems/{id}/teststeps` | POST | **Add test steps** | **No - Discovered!** |
+| `/projects/{id}/workitems/{id}/teststeps/{index}` | GET | Get test step | **No - Discovered!** |
+| `/projects/{id}/workitems/{id}/teststeps/{index}` | DELETE | Delete test step | **No - Discovered!** |
+| `/projects/{id}/testruns` | POST | Create test run | Yes |
+| `/projects/{id}/testruns/{id}/records` | PATCH | Update test result | Yes |
 
 ## Authentication
 
